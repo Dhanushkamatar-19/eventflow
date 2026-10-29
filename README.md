@@ -13,7 +13,6 @@
 - **Event Registration**: Users can register for events with automatic capacity tracking
 - **User Dashboard**: Personal dashboard showing hosted events and registered events
 - **File Uploads**: Support for event banner images (PNG, JPG, GIF, WebP - max 5MB)
-- **Email Notifications**: Built-in email support (configured for Gmail SMTP)
 - **Responsive Design**: Dark-themed UI with purple/pink accents
 
 ## Technology Stack
@@ -25,7 +24,6 @@
 | **Authentication** | Flask-Bcrypt |
 | **Web Forms** | Flask-WTF |
 | **File Handling** | Werkzeug, Pillow |
-| **Email** | Flask-Mail |
 | **Containerization** | Docker, Docker Compose |
 | **Python Version** | 3.11+ |
 
@@ -306,9 +304,7 @@ MYSQL_HOST=db
 MYSQL_USER=eventflow_user
 MYSQL_PASSWORD=eventflow_pass
 MYSQL_DB=eventflow_db
-MAIL_USERNAME=your-gmail@gmail.com
-MAIL_PASSWORD=your-app-password
-MAIL_DEFAULT_SENDER=your-gmail@gmail.com
+
 ```
 
 ### 4. Build and Start Services
@@ -432,10 +428,6 @@ CREATE TABLE registrations (
 - Connection timeout: Default MySQL settings
 - Cursor type: DictCursor (returns results as dictionaries)
 
-**Email:**
-- SMTP Server: smtp.gmail.com
-- Port: 587
-- Use TLS: Yes
 
 ---
 
@@ -523,11 +515,10 @@ docker-compose up -d
 
 1. ✅ Change all default credentials in `.env`
 2. ✅ Use strong `SECRET_KEY` (minimum 32 characters)
-3. ✅ Generate Gmail app-specific password (not regular password)
-4. ✅ Use HTTPS in production (add SSL certificate)
-5. ✅ Restrict database access (limit 3306 to internal only)
-6. ✅ Regular backups of MySQL data
-7. ✅ Use managed MySQL service (Azure Database for MySQL) in production
+3. ✅ Use HTTPS in production (add SSL certificate)
+4. ✅ Restrict database access (limit 3306 to internal only)
+5. ✅ Regular backups of MySQL data
+6. ✅ Use managed MySQL service (Azure Database for MySQL) in production
 
 ---
 
